@@ -52,6 +52,7 @@ float ins_alt;
 float ins_alt_dot;
 
 #if USE_BAROMETER
+#include "generated/modules.h"
 #include "subsystems/sensors/baro.h"
 #include "math/pprz_isa.h"
 

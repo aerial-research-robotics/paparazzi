@@ -17,6 +17,10 @@
 #include "subsystems/radio_control.h"
 #endif
 
+#ifdef RADIO_CONTROL_TYPE_DATALINK
+#include "subsystems/radio_control.h"
+#endif
+
 #include NPS_SENSORS_PARAMS
 
 
@@ -55,6 +59,11 @@ void nps_ivy_common_init(char* ivy_bus) {
   IvyBindMsg(on_DL_SETTING, NULL, "^(\\S*) DL_SETTING (\\S*) (\\S*) (\\S*)");
   IvyBindMsg(on_DL_GET_SETTING, NULL, "^(\\S*) GET_DL_SETTING (\\S*) (\\S*)");
   IvyBindMsg(on_DL_BLOCK, NULL,   "^(\\S*) BLOCK (\\S*) (\\S*)");
+
+#ifdef RADIO_CONTROL_TYPE_DATALINK
+  IvyBindMsg(on_DL_RC_3CH, NULL, "^(\\S*) RC_3CH (\\S*) (\\S*) (\\S*) (\\S*)");
+  IvyBindMsg(on_DL_RC_4CH, NULL, "^(\\S*) RC_4CH (\\S*) (\\S*) (\\S*) (\\S*) (\\S*) (\\S*)");
+#endif
 
 #ifdef RADIO_CONTROL_TYPE_DATALINK
   IvyBindMsg(on_DL_RC_3CH, NULL, "^(\\S*) RC_3CH (\\S*) (\\S*) (\\S*) (\\S*)");

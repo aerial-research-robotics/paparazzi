@@ -1,3 +1,96 @@
+Paparazzi 5.0.5_stable
+======================
+
+Maintenance release
+
+- fix field order in HFF_DBG message
+- fix altitude in some extra nav routines
+- fix create_module tool
+- fix RCLost macro
+- add GetAltRef() for flight plan compatibility with v5.2
+
+
+Paparazzi 5.0.4_stable
+======================
+
+Maintenance release
+
+- fix perl script compile_all_test_targets
+- add pcre lib to jsbsim, cleanup shell commands
+- fix InsideX for sectors (GetPosX and GetPosY in nav.h (FW) are in local coordinates)
+  #[602]  (https://github.com/paparazzi/paparazzi/issues/602)
+- stm32: enable correct error interrupts for i2c2 and i2c3
+
+
+Paparazzi 5.0.3_stable
+======================
+
+Maintenance release
+
+- fix Paparazzi Center on Mac OS (detection of child processes exitting)
+  [#290] (https://github.com/paparazzi/paparazzi/issues/290)
+- state interface: fix stateCalcHorizontalSpeedNorm_i
+- fix/improve dependency generation for building firmware
+- abort with meaningful error if ARM toolchain is not found
+
+
+Paparazzi 5.0.2_stable
+======================
+
+Maintenance release
+
+- add launch and noground options to pprzsim-launch
+- fixedwing: fix initialzation of trim commands, including yaw
+- fixedwing: fixes to use ins_alt_dot from ins_alt_float (with USE_BAROMETER)
+  [#511] (https://github.com/paparazzi/paparazzi/pull/511)
+- state interface: fix local/global coordinate validity checks
+- state interface: fix local ned/enu to ecef conversion
+- lib/ocaml: update leap_seconds to 16 (last one was on June 30, 2012)
+
+
+Paparazzi 5.0.1_stable
+======================
+
+Maintenance release
+
+General
+-------
+
+- joystick hat support for input2ivy
+  [#460] (https://github.com/paparazzi/paparazzi/pull/460)
+- high speed logger: fix mag channels
+- math: fix ecef_of_[ned|enu]_i
+- fix google maps version download parsing
+
+Rotorcraft/Fixedwing firmwares
+------------------------------
+
+- rotorcraft: add MODE_STARTUP
+  [#467] (https://github.com/paparazzi/paparazzi/pull/467)
+- ARDrone2: GPS satellite informaton
+  [#474] (https://github.com/paparazzi/paparazzi/pull/474)
+- fixedwing: init state interface before sensors and ins
+- fixedwing: don't overwrite yaw command with trim
+
+Simulator
+---------
+
+- NPS: explicitly add pcre lib
+- NPS: make radio_control tpye datalink work
+- don't try to use ADC_CHANNEL_CURRENT in SITL
+
+Drivers and architecture specific
+---------------------------------
+
+- fixes for imu_drotek_10dof_v2
+- init spi_slave_hs for imu_chimu
+- mpu60x0_i2c: only copy ext data if i2c_bypass is false
+- aspirin_v2.2: unselect baro at startup
+- aspirin_2_spi: default AHRS_PROPAGATE_FREQUENCY is 512
+- STM32F4: fix ppm input timer frequency for TIM2
+- add i2c3 initialization
+
+
 Paparazzi 5.0.0_stable
 ======================
 
